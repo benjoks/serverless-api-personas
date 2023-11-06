@@ -1,0 +1,32 @@
+service: apigateway-personas
+frameworkVersion: '3.29.0'
+custom:
+  service: apigateway-personas
+  prefix: ${self:service}-${self:provider.stage}
+  pythonRequirements:
+    dockerizePip: non-linux
+provider:
+  httpApi:
+    payload: '2.0'
+    id: ${file(${self:provider.stage}.yml):ID_API_TRANSVERSALES_V2}
+  name: aws
+  runtime: python3.7
+  region: ${file(${self:provider.stage}.yml):REGION}
+  stage: ${opt:stage, 'dev'}
+  versionFunctions: false
+  stackTags:
+    "Proyecto": "EDDIE"
+  deploymentBucket:
+    name: ${file(${self:provider.stage}.yml):DEPLOYMENT_BUCKET}
+  environment:
+    ID_API_TRANSVERSALES_V2: ${file(${self:provider.stage}.yml):ID_API_TRANSVERSALES_V2}
+    ARN_TABLA_PERSONAS: ${file(${self:provider.stage}.yml):ARN_TABLA_PERSONAS}
+    TABLA_RUT_PERSONAS: ${file(${self:provider.stage}.yml):TABLA_RUT_PERSONAS}
+    REGION_NAME_BY_STAGE: ${self:provider.region}
+  iam:
+    role:
+      statements: ${file(.cloudformation/iam/iam_policies.yml)}
+functions:
+  ${file(.cloudformation/resources/lambda/functions.yml)}
+resources:
+  #- ${file(.cloudformation/resources/resources.yml)}

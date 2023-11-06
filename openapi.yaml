@@ -1,0 +1,47 @@
+openapi: "3.0.1"
+info:
+  title: "API Gateway Personas"
+  version: "2023-04-04 20:55:52UTC"
+servers:
+- url: "https://api.bvmdev.com/{basePath}"
+  variables:
+    basePath:
+      default: "dev"
+paths:
+  /v1/personas/{rut}/nacimiento/{fecha}:
+    get:
+      responses:
+        default:
+          description: "Default response for GET /v1/personas/{rut}/nacimiento/{fecha}"
+    parameters:
+    - name: "rut"
+      in: "path"
+      description: "Generated path parameter for rut"
+      required: true
+      schema:
+        type: "string"
+    - name: "fecha"
+      in: "path"
+      description: "Generated path parameter for fecha"
+      required: true
+      schema:
+        type: "string"
+components:
+  securitySchemes:
+x-amazon-apigateway-cors:
+  allowMethods:
+  - "DELETE"
+  - "GET"
+  - "HEAD"
+  - "OPTIONS"
+  - "POST"
+  - "PUT"
+  allowHeaders:
+  - "authorization, *"
+  exposeHeaders:
+  - "date, x-api-id"
+  maxAge: 300
+  allowCredentials: true
+  allowOrigins:
+  - "http://*"
+x-amazon-apigateway-importexport-version: "1.0"

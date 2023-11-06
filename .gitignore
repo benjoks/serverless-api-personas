@@ -1,0 +1,15 @@
+node_modules
+.serverless/
+.serverless
+# Serverless directories
+__pycache__/
+__pycache__.py
+pylint.log
+.pytest_cache/
+*.pyc
+settings.json
+.vscode
+package-lock.json
+.env
+dev.yml
+/devops-scripts

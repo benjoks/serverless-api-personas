@@ -1,0 +1,13 @@
+- Effect: Allow
+  Action:
+  - dynamodb:GetItem
+  - dynamodb:Scan
+  - dynamodb:Query
+  Resource:
+  - ${file(${self:provider.stage}.yml):ARN_TABLA_PERSONAS}
+- Effect: Allow
+  Action:
+  - lambda:AddPermission
+  - lambda:InvokeFunction
+  Resource:
+    - !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${self:service}-${self:provider.stage}-validateBornDate

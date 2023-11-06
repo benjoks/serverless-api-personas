@@ -1,0 +1,36 @@
+repos:
+  -
+    hooks:
+      -
+        description: "Revisa si archivos yaml son validos"
+        id: check-yaml
+        name: "Check yaml files"
+      -
+        description: "Corrigue saltos de linea al final de los archivos"
+        id: end-of-file-fixer
+        name: "End file fixer"
+      -
+        description: "Elimina espacios en blanco innecesarios"
+        id: trailing-whitespace
+        name: "Trailing whitespaces"
+    repo: "https://github.com/pre-commit/pre-commit-hooks"
+    rev: v3.1.0
+  -
+    hooks:
+      -
+        description: "Analiza la calidad del codigo"
+        id: pylint
+        log_file: pylint.log
+        name: "Code quality"
+    repo: "https://github.com/PyCQA/pylint"
+    rev: pylint-2.5.3
+  -
+    hooks:
+      -
+        description: "Ejecuta las pruebas unitarias del proyecto"
+        entry: pytest test/test.py
+        id: unittest
+        language: python
+        name: "Unit test"
+        pass_filenames: false
+    repo: local

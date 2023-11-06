@@ -1,0 +1,14 @@
+{
+  "name": "apigateway-personas",
+  "description": "Api Gateway Personas",
+  "version": "1.0.1",
+  "keywords": [],
+  "author": "EDDIE",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-domain-manager": "7.0.2"
+  },
+  "dependencies": {
+    "serverless": "3.29.0"
+  }
+}

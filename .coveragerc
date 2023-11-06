@@ -1,0 +1,3 @@
+[report]
+omit =  utils/aws_resources/*, utils/constants.py, */__init__.py,functions/*, lib/*,test/*
+
