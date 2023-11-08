@@ -13,6 +13,20 @@ def response_success(message, description):
         "body": json.dumps(body)
     }
 
+def response_success_data(message, description,data):
+    body = {
+        "statusCode": 200,
+        "message": message,
+        "description": description,
+        "data":data
+        }
+    return {
+        "isBase64Encoded": False,
+        "statusCode": 200,
+        "headers": {"Access-Control-Allow-Origin": "*"},
+        "body": json.dumps(body)
+    }
+
 def response_bad_request(message, description):
     body = {
         "statusCode": 400,

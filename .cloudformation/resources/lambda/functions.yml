@@ -5,4 +5,11 @@ validateBornDate:
         method: GET
         path: /v1/personas/{rut}/nacimiento/{fecha}
 
+getDataPerson:
+  handler: functions/get_persons_from_rut.handler
+  events:
+    - httpApi:
+        method: GET
+        path: /v1/personas/{rut}
+
 #TODO : [] Update handlers as progress
