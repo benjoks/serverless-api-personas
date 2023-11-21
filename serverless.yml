@@ -8,7 +8,7 @@ custom:
 provider:
   httpApi:
     payload: '2.0'
-    id: ${file(${self:provider.stage}.yml):ID_API_TRANSVERSALES_V2}
+    id: ${file(${self:provider.stage}.yml):ID_API}
   name: aws
   runtime: python3.7
   region: ${file(${self:provider.stage}.yml):REGION}
@@ -19,7 +19,7 @@ provider:
   deploymentBucket:
     name: ${file(${self:provider.stage}.yml):DEPLOYMENT_BUCKET}
   environment:
-    ID_API_TRANSVERSALES_V2: ${file(${self:provider.stage}.yml):ID_API_TRANSVERSALES_V2}
+    ID_API: ${file(${self:provider.stage}.yml):ID_API}
     ARN_TABLA_PERSONAS: ${file(${self:provider.stage}.yml):ARN_TABLA_PERSONAS}
     TABLA_RUT_PERSONAS: ${file(${self:provider.stage}.yml):TABLA_RUT_PERSONAS}
     REGION_NAME_BY_STAGE: ${self:provider.region}

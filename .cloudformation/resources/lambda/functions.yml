@@ -12,4 +12,11 @@ getDataPerson:
         method: GET
         path: /v1/personas/{rut}
 
+createPerson:
+  handler: functions/create_person.handler
+  events:
+    - httpApi:
+        method: POST
+        path: /v1/personas
+
 #TODO : [] Update handlers as progress
