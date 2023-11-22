@@ -23,6 +23,10 @@ provider:
     ARN_TABLA_PERSONAS: ${file(${self:provider.stage}.yml):ARN_TABLA_PERSONAS}
     TABLA_RUT_PERSONAS: ${file(${self:provider.stage}.yml):TABLA_RUT_PERSONAS}
     REGION_NAME_BY_STAGE: ${self:provider.region}
+    URL_AUTH: ${file(${self:provider.stage}.yml):URL_AUTH}
+    CLIENT_ID: ${file(${self:provider.stage}.yml):CLIENT_ID}
+    CLIENT_SECRET: ${file(${self:provider.stage}.yml):CLIENT_SECRET}
+    AUDIENCE: ${file(${self:provider.stage}.yml):AUDIENCE}
   iam:
     role:
       statements: ${file(.cloudformation/iam/iam_policies.yml)}

@@ -12,6 +12,13 @@ getDataPerson:
         method: GET
         path: /v1/personas/{rut}
 
+getTokenPersona:
+  handler: functions/get_token.handler
+  events:
+    - httpApi:
+        method: GET
+        path: /v1/personas/{rut}
+
 createPerson:
   handler: functions/create_person.handler
   events:
