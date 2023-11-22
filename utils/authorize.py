@@ -19,12 +19,8 @@ def get_token():
     "grant_type": "client_credentials"
     } 
     payload = json.dumps(payload_dict)
-
     headers = { 'content-type': "application/json" }
-
     response = requests.post(URL_AUTH,data=payload,headers=headers)
-    res = json.loads(response)
-    print(res)
-    data = res["access_token"]
-
-    return data
+    res = json.loads(response.text)
+    
+    return res
